@@ -145,3 +145,8 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `server/src/routes/documents.js`, `server/src/routes/chats.js`, `server/src/app.js`, `server/src/index.js`, `README.md`
 - **Summary**: Implemented Express application routes for multipart document uploads via `multer`, document deletion with cascading chunk cleanup, chat session lifecycle, and real-time SSE query endpoints.
 - **Developer Note**: Document upload pipeline automatically extracts text, produces chunks, batches vector embeddings, and stores chunks within a database transaction. The message endpoint orchestrates RAG retrieval, history assembly, SSE emission, and message history persistence.
+
+#### Commit 3.2: Query latency and analytics metrics endpoint
+- **Files**: `server/src/routes/metrics.js`, `README.md`
+- **Summary**: Implemented telemetry endpoint (`/api/metrics`) computing aggregate system usage statistics including total queries, average latency, p95 latency percentiles (`PERCENTILE_CONT(0.95)`), token consumptions, and average cost per query.
+- **Developer Note**: Scoped by user ID to provide granular visibility into personal API consumption and latency distribution.
