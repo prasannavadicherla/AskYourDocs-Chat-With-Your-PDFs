@@ -104,3 +104,8 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `.gitignore`, `.dockerignore`, `README.md`
 - **Summary**: Initialized repository structure, established git and docker exclusion rules, and added comprehensive architecture documentation.
 - **Developer Note**: Configured baseline rules ensuring secrets, local `.env` files, and `node_modules` are excluded right from the root commit.
+
+#### Commit 1.2: Database schema & vector storage initialization
+- **Files**: `server/db/schema.sql`, `README.md`
+- **Summary**: Defined PostgreSQL schema with `pgvector` extension, relational tables (`users`, `documents`, `chunks`, `chats`, `messages`, `metrics`), and HNSW vector index on 768-dimensional embeddings.
+- **Developer Note**: Uses HNSW indexing with cosine distance (`vector_cosine_ops`) for real-time similarity search. Strict foreign keys with cascade deletes enforce multi-tenant isolation and automated cleanup.
