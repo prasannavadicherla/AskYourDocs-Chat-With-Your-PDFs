@@ -173,3 +173,11 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `client/src/Chat.jsx`, `client/src/App.jsx`, `README.md`
 - **Summary**: Implemented the primary interactive UI (`client/src/Chat.jsx`) featuring real-time SSE stream reading, message threading, document upload list with progress states, and collapsible source citations. Connected auth state routing in root (`client/src/App.jsx`).
 - **Developer Note**: Uses `ReadableStream` reader with `TextDecoder` to parse streaming SSE tokens directly into the UI while keeping the auto-scroll pinned to the bottom. Citations expand to display the exact text snippet and chunk origin.
+
+
+### Sprint 5: Production Containerization & CI/CD
+
+#### Commit 5.1: Containerization setup (Docker & Docker Compose)
+- **Files**: `Dockerfile`, `docker-compose.yml`, `README.md`
+- **Summary**: Implemented a multi-stage `Dockerfile` building the client static bundle and packing the lightweight Node.js server, accompanied by a `docker-compose.yml` defining an isolated `pgvector/pgvector:pg16` database service.
+- **Developer Note**: Multi-stage Docker build keeps final production images lean by excluding frontend build tooling (`node_modules` from Vite) and running under a dedicated non-root security context.
