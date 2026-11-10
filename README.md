@@ -181,3 +181,8 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `Dockerfile`, `docker-compose.yml`, `README.md`
 - **Summary**: Implemented a multi-stage `Dockerfile` building the client static bundle and packing the lightweight Node.js server, accompanied by a `docker-compose.yml` defining an isolated `pgvector/pgvector:pg16` database service.
 - **Developer Note**: Multi-stage Docker build keeps final production images lean by excluding frontend build tooling (`node_modules` from Vite) and running under a dedicated non-root security context.
+
+#### Commit 5.2: CI/CD automation & AWS deployment workflow
+- **Files**: `.github/workflows/ci.yml`, `README.md`
+- **Summary**: Implemented GitHub Actions CI/CD pipeline (`.github/workflows/ci.yml`) that automatically executes Jest unit tests on pull requests/pushes to `main`, assumes AWS IAM roles via secure OIDC, builds the Docker container, pushes to Amazon ECR, and deploys to AWS App Runner.
+- **Developer Note**: OIDC avoids long-lived AWS access keys stored in repository secrets. Automated tests run before the build step to enforce that broken builds never reach ECR.
