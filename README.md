@@ -163,3 +163,8 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `client/package.json`, `client/package-lock.json`, `client/vite.config.js`, `client/index.html`, `client/src/main.jsx`, `client/src/styles.css`, `README.md`
 - **Summary**: Initialized the React single page application with Vite, configured dev server proxies for API forwarding, defined the application mount point, and established a modern responsive CSS styling system.
 - **Developer Note**: CSS design system utilizes custom variables, flexible layout flexboxes, smooth transitions, and distinct message bubble roles for user queries and AI responses.
+
+#### Commit 4.2: API integration layer and authentication UI
+- **Files**: `client/src/api.js`, `client/src/Login.jsx`, `README.md`
+- **Summary**: Implemented the client-side API helper service (`client/src/api.js`) providing automated Bearer token injection and error handling, along with a unified Login and Registration tabbed user interface (`client/src/Login.jsx`).
+- **Developer Note**: Tokens are persisted to `localStorage` and dispatched automatically across all document, chat, and SSE fetch requests.
