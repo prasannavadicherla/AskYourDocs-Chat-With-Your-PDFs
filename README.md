@@ -114,3 +114,11 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `server/package.json`, `server/package-lock.json`, `server/.env.example`, `server/src/db.js`, `server/src/migrate.js`, `README.md`
 - **Summary**: Initialized Node.js backend workspace with production/dev dependencies, defined `.env.example` contract, implemented PostgreSQL pool client (`server/src/db.js`), and added automated schema migration runner (`server/src/migrate.js`).
 - **Developer Note**: Centralized database connection logic with connection pooling handles environment transitions cleanly. `migrate.js` provides idempotent schema bootstrapping before server start.
+
+
+### Sprint 2: Authentication & Core RAG Pipeline
+
+#### Commit 2.1: Authentication system and JWT middleware
+- **Files**: `server/src/auth.js`, `server/src/routes/auth.js`, `README.md`
+- **Summary**: Implemented user authentication with salted bcrypt password hashing, JWT token signing/verification, and `requireAuth` Express middleware.
+- **Developer Note**: `requireAuth` validates the Bearer token on incoming requests, extracts the decoded user payload, and attaches `req.userId` to ensure downstream endpoints can only access resources belonging to that specific authenticated tenant.
