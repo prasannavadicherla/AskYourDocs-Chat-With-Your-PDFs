@@ -137,3 +137,11 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `server/src/llm.js`, `server/src/cost.js`, `README.md`
 - **Summary**: Integrated Gemini 2.5 Flash Lite streaming generative model (`server/src/llm.js`) with contextual prompt building, citation metadata formatting, and accurate token cost calculations for input/output prompts (`server/src/cost.js`).
 - **Developer Note**: Streams responses as Server-Sent Events (SSE), reducing perceived latency from seconds to under 400ms for first token arrival. Tracks prompt and candidate token counts to calculate micro-dollar execution expenses.
+
+
+### Sprint 3: API Endpoints, Analytics & Backend Testing
+
+#### Commit 3.1: Document management and chat routes
+- **Files**: `server/src/routes/documents.js`, `server/src/routes/chats.js`, `server/src/app.js`, `server/src/index.js`, `README.md`
+- **Summary**: Implemented Express application routes for multipart document uploads via `multer`, document deletion with cascading chunk cleanup, chat session lifecycle, and real-time SSE query endpoints.
+- **Developer Note**: Document upload pipeline automatically extracts text, produces chunks, batches vector embeddings, and stores chunks within a database transaction. The message endpoint orchestrates RAG retrieval, history assembly, SSE emission, and message history persistence.
