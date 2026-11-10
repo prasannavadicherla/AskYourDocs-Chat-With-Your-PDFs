@@ -168,3 +168,8 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `client/src/api.js`, `client/src/Login.jsx`, `README.md`
 - **Summary**: Implemented the client-side API helper service (`client/src/api.js`) providing automated Bearer token injection and error handling, along with a unified Login and Registration tabbed user interface (`client/src/Login.jsx`).
 - **Developer Note**: Tokens are persisted to `localStorage` and dispatched automatically across all document, chat, and SSE fetch requests.
+
+#### Commit 4.3: Document upload, conversational interface, and citation viewer
+- **Files**: `client/src/Chat.jsx`, `client/src/App.jsx`, `README.md`
+- **Summary**: Implemented the primary interactive UI (`client/src/Chat.jsx`) featuring real-time SSE stream reading, message threading, document upload list with progress states, and collapsible source citations. Connected auth state routing in root (`client/src/App.jsx`).
+- **Developer Note**: Uses `ReadableStream` reader with `TextDecoder` to parse streaming SSE tokens directly into the UI while keeping the auto-scroll pinned to the bottom. Citations expand to display the exact text snippet and chunk origin.
