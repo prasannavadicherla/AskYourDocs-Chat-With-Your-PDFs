@@ -127,3 +127,8 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `server/src/extract.js`, `server/src/chunk.js`, `README.md`
 - **Summary**: Implemented text extraction utility for PDF and plain text formats using `pdf-parse` (`server/src/extract.js`), alongside a sliding character window chunking algorithm (`server/src/chunk.js`).
 - **Developer Note**: Chunks are generated with 1,000 characters and 200 characters overlap. Whitespace is normalized and empty fragments are stripped to maximize embedding signal quality and contextual continuity.
+
+#### Commit 2.3: Embedding generation, vector storage, and similarity retrieval
+- **Files**: `server/src/embed.js`, `server/src/retrieve.js`, `README.md`
+- **Summary**: Implemented Gemini text embeddings generation (`gemini-embedding-001`, 768 dimensions) with batching (`server/src/embed.js`), and top-k vector cosine similarity retrieval (`server/src/retrieve.js`).
+- **Developer Note**: Similarity queries leverage pgvector's cosine distance operator `<=>` alongside user-level scoping `WHERE d.user_id = $1` to guarantee zero cross-tenant vector leakage and optimal execution plan with HNSW.
