@@ -1,0 +1,7 @@
+[
+  {
+    "question": "Replace with a question about your test document",
+    "expected_file": "your-document.pdf",
+    "expected_keywords": ["keyword"]
+  }
+]

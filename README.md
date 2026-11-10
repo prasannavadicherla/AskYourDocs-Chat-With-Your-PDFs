@@ -150,3 +150,8 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `server/src/routes/metrics.js`, `README.md`
 - **Summary**: Implemented telemetry endpoint (`/api/metrics`) computing aggregate system usage statistics including total queries, average latency, p95 latency percentiles (`PERCENTILE_CONT(0.95)`), token consumptions, and average cost per query.
 - **Developer Note**: Scoped by user ID to provide granular visibility into personal API consumption and latency distribution.
+
+#### Commit 3.3: Unit tests and evaluation harness
+- **Files**: `server/tests/chunk.test.js`, `server/tests/api.test.js`, `server/eval/questions.json`, `server/eval/run.js`, `README.md`
+- **Summary**: Implemented comprehensive Jest unit tests covering chunking logic, authentication boundaries, and mocked end-to-end API flows. Added an offline evaluation script (`server/eval/run.js`) and question benchmark dataset (`server/eval/questions.json`).
+- **Developer Note**: Tests mock database connections and Gemini API calls to ensure lightning-fast, zero-network CI test passes. The evaluation harness validates hit-rate, precision, and latency metrics on real documents.
