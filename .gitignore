@@ -1,0 +1,6 @@
+node_modules/
+dist/
+coverage/
+.env
+server/public/
+server/eval/results.json
