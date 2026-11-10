@@ -122,3 +122,8 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `server/src/auth.js`, `server/src/routes/auth.js`, `README.md`
 - **Summary**: Implemented user authentication with salted bcrypt password hashing, JWT token signing/verification, and `requireAuth` Express middleware.
 - **Developer Note**: `requireAuth` validates the Bearer token on incoming requests, extracts the decoded user payload, and attaches `req.userId` to ensure downstream endpoints can only access resources belonging to that specific authenticated tenant.
+
+#### Commit 2.2: Document ingestion, text extraction, and chunking
+- **Files**: `server/src/extract.js`, `server/src/chunk.js`, `README.md`
+- **Summary**: Implemented text extraction utility for PDF and plain text formats using `pdf-parse` (`server/src/extract.js`), alongside a sliding character window chunking algorithm (`server/src/chunk.js`).
+- **Developer Note**: Chunks are generated with 1,000 characters and 200 characters overlap. Whitespace is normalized and empty fragments are stripped to maximize embedding signal quality and contextual continuity.
