@@ -109,3 +109,8 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `server/db/schema.sql`, `README.md`
 - **Summary**: Defined PostgreSQL schema with `pgvector` extension, relational tables (`users`, `documents`, `chunks`, `chats`, `messages`, `metrics`), and HNSW vector index on 768-dimensional embeddings.
 - **Developer Note**: Uses HNSW indexing with cosine distance (`vector_cosine_ops`) for real-time similarity search. Strict foreign keys with cascade deletes enforce multi-tenant isolation and automated cleanup.
+
+#### Commit 1.3: Server scaffolding & database connection pooling
+- **Files**: `server/package.json`, `server/package-lock.json`, `server/.env.example`, `server/src/db.js`, `server/src/migrate.js`, `README.md`
+- **Summary**: Initialized Node.js backend workspace with production/dev dependencies, defined `.env.example` contract, implemented PostgreSQL pool client (`server/src/db.js`), and added automated schema migration runner (`server/src/migrate.js`).
+- **Developer Note**: Centralized database connection logic with connection pooling handles environment transitions cleanly. `migrate.js` provides idempotent schema bootstrapping before server start.
