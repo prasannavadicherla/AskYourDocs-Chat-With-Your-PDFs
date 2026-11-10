@@ -155,3 +155,11 @@ The container runs the migration on start, then serves the API and the built Rea
 - **Files**: `server/tests/chunk.test.js`, `server/tests/api.test.js`, `server/eval/questions.json`, `server/eval/run.js`, `README.md`
 - **Summary**: Implemented comprehensive Jest unit tests covering chunking logic, authentication boundaries, and mocked end-to-end API flows. Added an offline evaluation script (`server/eval/run.js`) and question benchmark dataset (`server/eval/questions.json`).
 - **Developer Note**: Tests mock database connections and Gemini API calls to ensure lightning-fast, zero-network CI test passes. The evaluation harness validates hit-rate, precision, and latency metrics on real documents.
+
+
+### Sprint 4: Frontend Development (React + Vite SPA)
+
+#### Commit 4.1: React client setup and styling system
+- **Files**: `client/package.json`, `client/package-lock.json`, `client/vite.config.js`, `client/index.html`, `client/src/main.jsx`, `client/src/styles.css`, `README.md`
+- **Summary**: Initialized the React single page application with Vite, configured dev server proxies for API forwarding, defined the application mount point, and established a modern responsive CSS styling system.
+- **Developer Note**: CSS design system utilizes custom variables, flexible layout flexboxes, smooth transitions, and distinct message bubble roles for user queries and AI responses.
